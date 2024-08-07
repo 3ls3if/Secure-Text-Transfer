@@ -1,0 +1,42 @@
+<%- include("partials/header-home"); %>
+
+
+    <center>
+        <div class="login-form h-100 d-inline-block">
+            <form action="/login" id="form_login" method="post" onsubmit="return submitUserForm();">
+                <h1>Login</h1>
+                <br>
+                <div class="content">
+                    <div class="input-field">
+                        <input id="inp_email" type="email" name="username" placeholder="Email" autocomplete="nope"
+                            required>
+                    </div>
+                    <div class="input-field">
+                        <input id="inp_pwd" type="password" name="password" placeholder="Password" autocomplete="nope"
+                            required>
+                    </div>
+                    <br>
+                    <div class="g-recaptcha" data-sitekey="6LcjFIAiAAAAADnoT38yoT5sbcBbcVHU3nqik6FG"
+                        data-callback="verifyCaptcha">
+                    </div>
+                    <div id="g-recaptcha-error"></div>
+                    <a href="/register" class="link">Don't have an account?</a>
+                    <br>
+
+                    <small>OR</small>
+
+                    <br>
+                    <a class="link" href="/auth/google"> Sign up with
+                        <i class="fab fa-google"></i>
+                    </a>
+                </div>
+                <div class="action">
+                    <button type="submit">Sign in</button>
+                </div>
+            </form>
+        </div>
+    </center>
+
+    <script src="js/login_validation.js"></script>
+
+    <%- include("partials/footer-home"); %>

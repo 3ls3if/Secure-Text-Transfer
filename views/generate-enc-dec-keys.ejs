@@ -1,0 +1,125 @@
+<%- include("partials/header-dashboard"); %>
+
+
+    <div class="container mt-5 text-center">
+
+        <script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
+
+        <% if(records[0]==null){ %>
+            <h5>
+                <br>
+                <span><strong id="myElement"></strong></span>
+            </h5>
+            <script>
+                new TypeIt("#myElement", {
+
+                    strings: "Please create a new username!".toUpperCase().fontcolor("black"),
+                    speed: 100,
+                    loop: false
+                }).go();
+            </script>
+
+            <% }else if(records[0].username){ %>
+                <br>
+
+                <h5>
+                    <span><strong id="myElement2"></strong></span>
+                </h5>
+
+                <script>
+                    new TypeIt("#myElement2", {
+
+                        strings: "Hello, <%=records[0].username%>!".toUpperCase().fontcolor("black"),
+                        speed: 100,
+                        loop: false
+                    }).go();
+                </script>
+                <% } %>
+
+
+
+
+                    <div class="col-sm-9 mx-auto container mt-4 bg-light mb-4">
+
+                        <form action="/keygen" method="post">
+
+                            <div class="row g-3 mt-3 mb-4 ">
+
+                                <div class="input-group mb-3">
+                                    <input style="border-color: black;" type="text" name="username" class="form-control"
+                                        placeholder="Enter a new username" aria-label="username"
+                                        aria-describedby="button-addon2" pattern="^[A-Za-z][A-Za-z0-9_]{3, 9}"
+                                        title="Use only letters, numbers, and underscores of length between 3 to 9"
+                                        required>
+                                </div>
+                                <span style="color: red">
+                                    <%=taken%>
+                                </span>
+
+                                <div class="input-group col-md">
+                                    <span class="input-group-text" style="color: black; border-color: white">You
+                                        can<br>share this<br>public
+                                        key</span>
+
+                                    <textarea style="color: green; border-color: white" class="form-control" rows="5"
+                                        readonly required>
+                                    <% if(records.length>0){ %>
+                                        <%=records[0].publicKey%>     
+                                    <% } else { %>
+                                        Generate your public key by clicking on the Generate button!
+                                    <% } %>
+                                </textarea>
+
+                                </div>
+
+                                <div class="input-group col-md">
+                                    <span class="input-group-text" style="color: black; border-color: white">Do
+                                        not<br>share this<br>Private
+                                        key</span>
+
+                                    <textarea style="color: red; border-color: white; text-decoration: solid;" id="txt"
+                                        class="form-control" rows="5" readonly required>
+                                    <% if(records.length>0){ %>
+                                        <%=records[0].privateKey%>    
+                                    <% } else { %>
+                                        Generate your private key by clicking on the Generate button!
+                                    <% } %>        
+                                </textarea>
+                                    <button type="button" class="btn btn-group-sm btn-dark" aria-disabled="true"><a
+                                            href="" id="link" download="private-key.txt" disabled><i
+                                                class="fas fa-download fa-lg"></i></a></button>
+
+                                </div>
+
+                            </div>
+                            <br>
+                            <span><strong style="color: red">Note:</strong></span>
+                            <span><em style="color: rgb(19, 136, 204)">You can generate new usernames and key pairs
+                                    any number of times!</em></span>
+                            <br>
+                            <span><strong style="color: red">Note:</strong></span>
+                            <span><em style="color: rgb(19, 136, 204)">Your previous messages will be deleted after
+                                    generating a new username and key pair!</em></span>
+
+
+                            <center><button type="submit" class="btn btn-danger mt-3 mb-4">Generate</button></center>
+
+                        </form>
+
+
+                    </div>
+    </div>
+
+
+    <script>
+        window.onload = function () {
+            var txt = document.getElementById('txt');
+            document.getElementById('link').onclick = function (code) {
+                this.href = 'data:text/plain;charset=utf-11,' + encodeURIComponent(txt.value);
+            };
+        };
+
+        main();
+    </script>
+
+    <%- include("partials/footer-dashboard"); %>

@@ -1,0 +1,158 @@
+<%- include("partials/header-dashboard"); %>
+
+
+
+
+
+    <div class="container mt-5 mb-5">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <!-- <div class="card-body">
+                    <h5 class="card-title text-uppercase mb-0">Received Messages</h5>
+                </div> -->
+                    <div class="table-responsive">
+                        <table class="table no-wrap user-table mb-1 mt-1">
+                            <thead>
+                                <tr>
+                                    <th scope="col" class="border-0 text-uppercase font-medium pl-2">Profile photo</th>
+                                    <th scope="col" class="border-0 text-uppercase font-medium pl-3">To</th>
+                                    <th scope="col" class="border-0 text-uppercase font-medium pl-5">Sent text
+                                    </th>
+                                    <th scope="col" class="border-0 text-uppercase font-medium pl-5">Your text
+                                    </th>
+                                    <th scope="col" class="border-0 text-uppercase font-medium pl-5">Manage</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <%if(data2.length>0){ %>
+                                    <%let count=0%>
+                                        <%data2.forEach(function(row){%>
+                                            <%if(rUsername===row.sender_username){%>
+                                                <%count++%>
+                                                    <form id="form1" action="" method="post">
+                                                        <tr>
+                                                            <td>
+                                                                <img src="https://bootdey.com/img/Content/user_1.jpg"
+                                                                    height="auto" alt="Profile picture">
+                                                            </td>
+                                                            <td style="width: 12%">
+                                                                <h5 class="font-medium mb-0">
+                                                                    <%=row.receiver_username%>
+                                                                </h5>
+                                                                <span class="text-muted">Member</span>
+                                                            </td>
+
+                                                            <td style="width: auto">
+                                                                <div class="mb-1">
+                                                                    <textarea class="form-control"
+                                                                        id="exampleFormControlTextarea1" rows="3"
+                                                                        cols="3"
+                                                                        readonly><%=row.enc_message%></textarea>
+                                                                </div>
+
+                                                            </td>
+
+
+                                                            <td style="width: auto">
+                                                                <div class="mb-1">
+
+                                                                    <textarea class="form-control" rows="3" cols="5"
+                                                                        readonly name="decrypted_Message"
+                                                                        id="<%=count%>" style="display: none">
+                                                                <%=decryptedMessage[count-1]%>
+                                                            </textarea>
+
+                                                                </div>
+
+                                                            </td>
+
+                                                            <td>
+
+                                                                <button type="button"
+                                                                    class="btn btn-outline-success btn-circle btn-lg btn-circle ml-2"><i
+                                                                        class="fa fa-key fa-sm"
+                                                                        title="Decrypt this message"
+                                                                        onclick="hideMe('<%=count%>')"></i>
+                                                                </button>
+
+                                                                <button type="submit"
+                                                                    class="btn btn-outline-danger btn-circle btn-lg btn-circle ml-2"
+                                                                    formaction="/delete-sent-messages" name="msgInfo"
+                                                                    value="<%=row.message_hash%>"><i
+                                                                        class="fa fa-trash-o"
+                                                                        title="Delete this message"></i>
+                                                                </button>
+
+                                                                <button type="button"
+                                                                    class="btn btn-outline-warning btn-circle btn-lg btn-circle ml-2 btn-warning"
+                                                                    data-toggle="popover" name="datefinder"
+                                                                    value="<%=row.createdAt%>"><i
+                                                                        class="fa fa-info-circle fa-sm"
+                                                                        title="Display message date and time"></i>
+                                                                </button>
+
+
+                                                                <script>
+
+                                                                    let date;
+
+                                                                    function hideMe(count) {
+                                                                        var x = document.getElementById(count);
+                                                                        if (x.style.display === "none") {
+                                                                            x.style.display = "block";
+                                                                        } else {
+                                                                            x.style.display = "none";
+                                                                        }
+
+                                                                    }
+
+
+                                                                    $(document).ready(function () {
+
+                                                                        // var datetime = $(this).val()
+
+                                                                        $('.btn-warning').popover({
+                                                                            content: function () {
+
+                                                                                var dateTime = $(this).val();
+
+                                                                                return dateTime;
+                                                                            }, placement: 'bottom'
+                                                                        });
+                                                                    });
+
+                                                                </script>
+                                                            </td>
+                                                        </tr>
+                                                    </form>
+
+                                                    <%}%>
+                                                        <%})}else{%>
+                                                            <div class="alert alert-primary alert-dismissible fade show"
+                                                                role="alert">
+                                                                <strong>Empty History! </strong> You currently do not have
+                                                                any texts.
+                                                                <button type="button" class="close" data-dismiss="alert"
+                                                                    aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                            </div>
+                                                            <%}%>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <%- include("partials/footer-dashboard"); %>

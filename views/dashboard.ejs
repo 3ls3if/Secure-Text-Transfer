@@ -1,0 +1,59 @@
+<%- include("partials/header-dashboard"); %>
+
+
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+    <h1 class="display-4">Features</h1>
+    <p class="lead">Quickly send encrypted text of any length to another users. Only you and the receiver will know about the text.<br>If you want to change your identity <a href="/keygen">Click Here</a></p>
+  </div>
+
+  <div class="container">
+    <div class="card-deck mb-3 text-center">
+      <div class="card mb-4 box-shadow">
+        <div class="card-header">
+          <h4 class="my-0 font-weight-normal">Send Text</h4>
+        </div>
+        <div class="card-body">
+          <h1 class="card-title pricing-card-title"><small class="text-muted">What you can do?</small></h1>
+          <ul class="list-unstyled mt-3 mb-4">
+            <li>You can send encrypted</li>
+            <li>texts of any length</li>
+            <li>to a user.</li>
+            <br>
+          </ul>
+          <button type="button" onclick="location.href= 'send-message'" class="btn btn-lg btn-block btn-primary">Go to send text page</button>
+        </div>
+      </div>
+      <div class="card mb-4 box-shadow">
+        <div class="card-header">
+          <h4 class="my-0 font-weight-normal">Receive Text</h4>
+        </div>
+        <div class="card-body">
+          <h1 class="card-title pricing-card-title"><small class="text-muted">What you can do?</small></h1>
+          <ul class="list-unstyled mt-3 mb-4">
+            <li>Decrypt and Read received texts.</li>
+            <li>Reply to the texts.</li>
+            <li>Check texts date and time.</li>
+            <li>Delete texts from your side.</li>
+          </ul>
+          <button type="button" onclick="location.href= 'received-messages'" class="btn btn-lg btn-block btn-primary">Go to received texts page</button>
+        </div>
+      </div>
+      <div class="card mb-4 box-shadow">
+        <div class="card-header">
+          <h4 class="my-0 font-weight-normal">My History</h4>
+        </div>
+        <div class="card-body">
+          <h1 class="card-title pricing-card-title"><small class="text-muted">What you can do?</small></h1>
+          <ul class="list-unstyled mt-3 mb-4">
+            <li>View all texts sent by you.</li>
+            <li>Check texts date and time.</li>
+            <li>Delete texts from your side</li>
+            <br>
+          </ul>
+          <button type="button" onclick="location.href= 'message-history'" class="btn btn-lg btn-block btn-primary">Go to history page</button>
+        </div>
+      </div>
+    </div>
+    
+
+<%- include("partials/footer-dashboard"); %>

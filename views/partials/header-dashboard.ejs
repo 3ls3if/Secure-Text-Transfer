@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Secure Cloud</title>
+
+  <link rel="stylesheet" href="/public/css/received-message-style.min.css">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  <!-- <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"> -->
+
+  <!-- <script src="/public/js/download-private-key.js" type="text/javascript"></script> -->
+
+  <!--for show all users page-->
+
+  <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+
+  <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js">
+
+
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
+  <!-- <script src="/bundle.js" type="module"></script> -->
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+
+  <!-- notifications-->
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/awesome-notifications/3.1.0/style.css"
+    integrity="sha512-CcK1aFT8RlnvPb3KKF3GDd9ilA0HMQ4D2n/bhMAAo7nsSIAOM93B7dfG4t/bad0jdhKKUtHLojMmQvaej/ea9Q=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/awesome-notifications/3.1.0/index.var.js"
+    integrity="sha512-9UlqvCXAq2rtTDejte9cTDBTc1W5jjuEMl7CbrpD1h66aLQeEHtgDflsicm81QFkDgUmSEg7IVM9wYOGa2n4VA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+
+
+  <!--notify-->
+  <!-- <script src="/public/notify/notify.min.js"></script> -->
+
+  <style>
+    body {
+      background: #eee;
+    }
+
+    .main-box.no-header {
+      padding-top: 20px;
+    }
+
+    .main-box {
+      background: #FFFFFF;
+      -webkit-box-shadow: 1px 1px 2px 0 #CCCCCC;
+      -moz-box-shadow: 1px 1px 2px 0 #CCCCCC;
+      -o-box-shadow: 1px 1px 2px 0 #CCCCCC;
+      -ms-box-shadow: 1px 1px 2px 0 #CCCCCC;
+      box-shadow: 1px 1px 2px 0 #CCCCCC;
+      margin-bottom: 16px;
+      -webikt-border-radius: 3px;
+      -moz-border-radius: 3px;
+      border-radius: 3px;
+    }
+
+    .table a.table-link.danger {
+      color: #e74c3c;
+    }
+
+    .label {
+      border-radius: 3px;
+      font-size: 0.875em;
+      font-weight: 600;
+    }
+
+    .user-list tbody td .user-subhead {
+      font-size: 0.875em;
+      font-style: italic;
+    }
+
+    .user-list tbody td .user-link {
+      display: block;
+      font-size: 1.25em;
+      padding-top: 3px;
+      margin-left: 60px;
+    }
+
+    a {
+      color: #3498db;
+      outline: none !important;
+    }
+
+    .user-list tbody td>img {
+      position: relative;
+      max-width: 50px;
+      float: left;
+      margin-right: 15px;
+    }
+
+    .table thead tr th {
+      text-transform: uppercase;
+      font-size: 0.875em;
+    }
+
+    .table thead tr th {
+      border-bottom: 2px solid #e7ebee;
+    }
+
+    .table tbody tr td:first-child {
+      font-size: 1.125em;
+      font-weight: 300;
+    }
+
+    .table tbody tr td {
+      font-size: 0.875em;
+      vertical-align: middle;
+      border-top: 1px solid #e7ebee;
+      padding: 12px 8px;
+    }
+
+    a:hover {
+      text-decoration: none;
+    }
+
+
+
+    /* .navbar-custom {
+      background-color: yellow;
+    }
+
+    /* Modify brand and text color*/
+    /* .navbar-custom .navbar-brand,
+    .navbar-custom .navbar-text {
+      color: green;
+    }  */
+
+  </style>
+
+
+</head>
+
+<!--body bg color: #A5C9CA
+   #2f2540
+   2C272E
+   2D033B
+-->
+
+<body style="background-color: #A5C9CA" class="d-flex flex-column min-vh-100">
+
+  <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+
+
+    <div class="container-fluid">
+
+
+      <span class="navbar-brand mb-0 h1" title="Focused on privacy"><i class="fa-solid fa-user-shield"></i>
+        <strong><i>S-CLOUD</i></strong></span>
+
+
+      <ul class="navbar-nav ms-auto">
+
+
+        <!--Home-->
+
+        <li class="nav-item me-3 me-lg-1 active">
+          <a  style="color: white"class="nav-link" href="/dashboard" data-toggle="tooltip" title="Home">
+            <span><i class="fas fa-home fa-lg"></i></span> <strong>HOME</strong>
+          </a>
+        </li>
+
+        <!--Users-->
+
+        <li class="nav-item dropdown me-3 me-lg-1">
+          <a  style="color: white" class="nav-link dropdown-toggle hidden-arrow" href="#" id="navbarDropdownMenuLink" role="button"
+            data-mdb-toggle="dropdown" aria-expanded="false" data-bs-toggle="dropdown" title="View Members">
+            <span><i class="fas fa-users fa-lg"></i></span> <strong>USERS</strong>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+            <li>
+              <a class="dropdown-item" href="/members">Other Members</a>
+            </li>
+          </ul>
+        </li>
+
+        <!--Messages-->
+
+        <li class="nav-item dropdown me-3 me-lg-1">
+          <a style="color: white" class="nav-link dropdown-toggle hidden-arrow" href="#" id="navbarDropdownMenuLink" role="button"
+            data-mdb-toggle="dropdown" aria-expanded="false" data-bs-toggle="dropdown" title="View History & Status">
+            <span><i class="fa-solid fa-clock-rotate-left fa-lg"></i></span> <strong>HISTORY</strong>
+            <!-- <span class="badge rounded-pill badge-notification bg-success">10</span> -->
+
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+            <li>
+              <a class="dropdown-item" href="/message-history">Text History</a>
+            </li>
+          </ul>
+        </li>
+
+        <!--Encryption-->
+
+        <li class="nav-item dropdown me-3 me-lg-1">
+          <a style="color: white" class="nav-link dropdown-toggle hidden-arrow" href="#" id="navbarDropdownMenuLink" role="button"
+            data-mdb-toggle="dropdown" aria-expanded="false" data-bs-toggle="dropdown" title="Send Encrypted Texts">
+            <span><i class="fa-solid fa-paper-plane fa-lg"></i></span> <strong>SEND</strong>
+
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+            <li>
+              <a class="dropdown-item" href="/send-message">Send Text</a>
+            </li>
+          </ul>
+        </li>
+
+        <!--Decryption-->
+
+
+        <li class="nav-item dropdown me-3 me-lg-1">
+          <a style="color: white" class="nav-link dropdown-toggle hidden-arrow" href="#" id="navbarDropdownMenuLink" role="button"
+            data-mdb-toggle="dropdown" aria-expanded="false" data-bs-toggle="dropdown" title="View Received Texts">
+
+            <span><i class="fa-solid fa-message fa-lg"></i></span> <strong>RECEIVE</strong>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+            <li>
+              <a class="dropdown-item" href="/received-messages">Received Texts</a>
+            </li>
+          </ul>
+        </li>
+
+
+
+        <!-- Avatar -->
+        <li class="nav-item dropdown">
+          <a style="color: white" class="nav-link dropdown-toggle hidden-arrow" href="#" id="navbarDropdownMenuLink" role="button"
+            data-mdb-toggle="dropdown" aria-expanded="true" data-bs-toggle="dropdown" title="Menu">
+
+            <i class="fa-solid fa-compass fa-lg"></i> <strong>MENU</strong>
+
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+            <li>
+              <a class="dropdown-item" href="/keygen">My profile</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="/logout">Logout</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </nav>

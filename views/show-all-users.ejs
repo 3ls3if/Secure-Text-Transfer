@@ -1,0 +1,141 @@
+<%- include("partials/header-dashboard"); %>
+
+    <div class="container bootstrap snippets bootdey mt-5">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="main-box no-header clearfix">
+                    <div class="main-box-body clearfix">
+                        <div class="table-responsive">
+                            <table class="table user-list">
+                                <thead style="color: black">
+                                    <tr>
+                                        <th>Users</th>
+                                        <!-- <th>&nbsp;</th> -->
+                                        <th>Status</th>
+                                        <th>Text</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% if(records.length>0){%>
+                                        <%records.forEach(function(row){%>
+
+                                            <form id="form1" action="/members" method="post">
+                                                <tr>
+                                                    <td>
+                                                        <img src="https://bootdey.com/img/Content/user_1.jpg" alt="">
+                                                        <!-- <a href="#" class="user-link"> -->
+
+                                                        <strong style="color: black">
+                                                            <%=row.username%>
+                                                        </strong>
+
+                                                        <!-- </a> -->
+                                                        <small>
+                                                            <span class="user-subhead" style="color: purple">
+
+                                                                <%if(row.userId==username._id){%>
+                                                                    <br>
+
+                                                                    <span style="color: red">***You***<span>
+                                                                    <%}else{%>
+                                                                        <br>
+                                                                        Member
+                                                                        <%}%>
+
+
+                                                            </span>
+                                                        </small>
+
+                                                    </td>
+                                                    <td style="width: 30%;">
+
+                                                        <p class="text-success">
+
+                                                            <span class="fa-stack">
+                                                                <i class="fa fa-square fa-stack-2x"></i>
+                                                                <i
+                                                                    class="fa-solid fa-circle fa-stack-1x fa-inverse"></i>
+
+                                                            </span>
+
+                                                        </p>
+
+                                                        <div>
+
+                                                            <strong style="color: green">User is available</strong>
+
+
+                                                        </div>
+
+                                                    </td>
+
+                                                    <td style="width: 30%;">
+
+                                                        <%if(row.userId==username._id){%>
+
+                                                            <span style="color: red">*Can not send text to yourself!</span>
+
+                                                        <%}else{%>
+
+                                                        <p class="text-info">
+                                                            <span class="fa-stack">
+                                                                <i class="fa fa-square fa-stack-2x"></i>
+                                                                <i class="fa fa-send fa-stack-1x fa-inverse"></i>
+
+                                                            </span>
+                                                            
+                                                        </p>
+
+                                                        <!-- <label class="form-check-label" for="inlineFormCheck"> -->
+                                                        <strong style="color:#076786">Click here</strong>
+                                                        <!-- </label> -->
+
+                                                        <input class="form-check-input" type="checkbox" name="userInfo"
+                                                            value="<%=row.username%>" id="flexCheckIndeterminate"
+                                                            onChange="this.form.submit()" style="margin-right: 20px;
+                                                                margin-left: -19px;
+                                                                margin-left: 6px;
+                                                                background-color: #7ba5b3
+                                                                
+                                                                ">
+                                                        
+
+                                                        <input type="hidden" name="keyInfo" value="<%=row.publicKey%>">
+
+                                                        <%}%>
+
+                                                    </td>
+
+                                                    <!-- <td style="width: 15%;">
+                                                        <a href="#" class="table-link text-dark" title="Send a file">
+                                                            <span class="fa-stack">
+                                                                <i class="fa fa-square fa-stack-2x"></i>
+                                                                <i class="fa-solid fa-file fa-stack-1x fa-inverse"></i>
+                                                            </span>
+                                                            Send a file
+                                                        </a>
+                                                    </td> -->
+
+                                                </tr>
+
+                                            </form>
+
+                                            <% })}else{%>
+                                                <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                                                    <strong>No Users Found!</strong> Invite someone to this platform.
+                                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                      <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                  </div>
+                                                <%}%>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <%- include("partials/footer-dashboard"); %>

@@ -1,0 +1,139 @@
+<%- include("partials/header-dashboard"); %>
+
+    <div class="container mt-auto mb-auto">
+        <div class=" text-center mt-5 mb-4">
+
+
+            <h4><strong><span id="myElement2"></span></strong></h4>
+
+        </div>
+
+        <script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
+
+        <script>
+
+            new TypeIt("#myElement2", {
+
+                strings: "SEND ENCRYPTED TEXT TO SOMEONE!".toUpperCase().fontcolor("black"),
+                speed: 100,
+                loop: false
+            }).go();
+
+
+            function success() {
+                if (document.getElementById("form_message").value === "") {
+                    document.getElementById('button').disabled = true;
+                } else {
+                    document.getElementById('button').disabled = false;
+                }
+            }
+
+
+            // function sendNotification() {
+
+
+            //     document.getElementById('button').disabled = false;
+
+            //     new AWN().success('Message sent successfully', { durations: { success: 3000 } });
+
+            //     document.getElementById("form_message").value = '';
+            //     document.getElementById('button').disabled = true;
+
+
+            // }
+
+        </script>
+
+
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="card mt-2 mx-auto p-4 bg-light">
+                    <div class="card-body bg-light">
+
+                        <div class="container">
+                            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+                            <form id="contact-form" action="/send-message" method="post">
+                                <div class="controls">
+
+                                    <div class="row">
+                                        <div class="col-md-7">
+                                            <div class="form-group">
+                                                <!-- <label for="form_name">Reciever *</label> -->
+
+
+                                                <%if(uName.length !=0){%>
+                                                    <input id="form_name" type="text" name="receiver_username"
+                                                        class="form-control" placeholder="Please select a receiver *"
+                                                        required data-error="Reciever username is required."
+                                                        value="<%=uName[0].username%>" readonly>
+
+                                                    <%}else{%>
+                                                        <input id="form_name" type="text" name="receiver_username"
+                                                            class="form-control"
+                                                            placeholder="Please select a receiver *" required
+                                                            data-error="Reciever username is required."
+                                                            value="No User Selected" readonly>
+
+                                                        <%}%>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+
+                                                <a href="/members" title="Select a user">
+                                                    <span class="fa-stack">
+                                                        <i class="fa fa-square fa-stack-2x"></i>
+                                                        <i class="fa-solid fa-user fa-stack-1x fa-inverse"></i>
+                                                    </span>
+                                                    <small>Select a user</small>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <!-- <label for="form_message">Message *</label> -->
+                                                <textarea id="form_message" name="message" class="form-control"
+                                                    placeholder="Write your text here." rows="4" required="required"
+                                                    data-error="Please, leave us a message." onkeyup="success()"
+                                                    spellcheck="true"></textarea>
+                                            </div>
+
+                                        </div>
+
+
+
+                                        <div class="col-md-12">
+
+                                            <input id="button" type="submit" class="btn btn-success btn-send pt-2 btn-block 
+                        " value="Send Text" disabled>
+
+
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+                            </form>
+                            
+                        </div>
+                    </div>
+
+
+                </div>
+                <!-- /.8 -->
+
+            </div>
+            <!-- /.row-->
+
+        </div>
+    </div>
+
+
+
+
+
+    <%- include("partials/footer-dashboard"); %>

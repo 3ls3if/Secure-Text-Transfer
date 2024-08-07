@@ -1,0 +1,40 @@
+<%- include("partials/header-home"); %>
+
+    <center>
+        <div class="login-form h-100 d-inline-block">
+            <form action="/register" method="post" id="form_register" onsubmit="return submitUserForm();">
+                <h1>Sign up</h1>
+
+                <div class="content">
+                    <div class="input-field">
+                        <input id="inp_email" name="username" type="email" placeholder="Email" autocomplete="nope" required>
+                    </div>
+<!-- 
+                    <div class="input-field">
+                        <input id="inp_uname" name="uname" type="text" placeholder="Username" autocomplete="nope" required>
+                    </div> -->
+
+                    <div class="input-field">
+                        <input id="password" name="password" type="password" placeholder="Password"
+                            autocomplete="new-password" required>
+                    </div>
+
+                    <div class="input-field">
+                        <input id="password_confirm" name="password_confirm" type="password" placeholder="Confirm Password"
+                            autocomplete="new-password" required>
+                    </div>
+                    <br>
+                    <div class="g-recaptcha" name="captcha" data-sitekey="6LcjFIAiAAAAADnoT38yoT5sbcBbcVHU3nqik6FG" data-callback="verifyCaptcha">
+                    </div>
+                    <div id="g-recaptcha-error"></div>
+                </div>
+                <div class="action">
+                    <button type="submit">Sign up</button>
+                </div>
+            </form>
+        </div>
+    </center>
+
+    <script src="js/register_validation.js"></script>
+
+    <%- include("partials/footer-home"); %>
